@@ -2,14 +2,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
         <div class="text-center">
             <img class="mb-4" src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
                 style="width: 250px; height: 90px;" />
-            <h5 class="mb-3">Thank you for using our product. We're glad you're with us.</h5>
-            <p class="mb-3">MDB Team</p>
-            <a class="btn btn-primary btn-lg" href="https://mdbootstrap.com/docs/standard/getting-started/"
-                target="_blank" role="button">Start MDB tutorial</a>
+            <h5 class="mb-3">pythonの練習</h5>
+            <p class="mb-3">Fuk_Dev9</p>
         </div>
     </div>
 </div>
@@ -18,21 +16,27 @@
 
     {% for item in post_list %}
 
-    <div class="col">
-        <div class="card h-100">
-            <img src="https://mdbootstrap.com/img/new/standard/city/044.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">
-                    This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
+    <!-- Card -->
+    <div class="card">
+
+        <!-- Card image -->
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+        <!-- Card content -->
+        <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title"><a>{{ item.title }}</a></h4>
+            <!-- Text -->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <!-- Button -->
+            <a href="{% url 'myapp:post_detail' item.id %}" class="btn btn-primary">Read More</a>
+
         </div>
+
     </div>
+    <!-- Card -->
 
     {% endfor %}
 
