@@ -41,6 +41,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin" target="_blank">管理画面</a>
                     </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="account" data-mdb-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Account</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="account">
+                            {% if request.user.is_authenticated %}
+                            <a class="dropdown-item">{{ request.user }}</a>
+                            <a class="dropdown-item" href="{% url 'myapp:logout' %}">ログアウト</a>
+                            {% else %}
+                            <a class="dropdown-item" href="{% url 'myapp:login' %}">ログイン</a>
+                            <a class="dropdown-item" href="{% url 'myapp:signup' %}">ユーザー登録</a>
+                            {% endif %}
+                        </div>
+                    </li>
+
+
                     <!-- Navbar dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -54,6 +72,9 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{% url 'myapp:post_list' %}">投稿一覧</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'myapp:category_list' %}">カテゴリ一覧</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider" />
@@ -70,13 +91,19 @@
                 <!-- Left links -->
             </div>
             <!-- search form -->
-            <form class="d-flex input-group w-auto">
+            <form action="{% url 'myapp:search' %}" class="form-inline" method="POST">
+                {% csrf_token %}
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" ,
+                    name="freeword">
+            </form>
+
+            <!-- <form class="d-flex input-group w-auto">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                     aria-describedby="search-addon" />
                 <span class="input-group-text border-0" id="search-addon">
                     <i class="fas fa-search"></i>
                 </span>
-            </form>
+            </form> -->
             <!-- Collapsible wrapper -->
         </div>
         <!-- Container wrapper -->
