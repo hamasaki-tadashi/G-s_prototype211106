@@ -13,4 +13,4 @@ class SiteConfig(models.Model):
     top_subtitle = models.CharField('TOPページサブタイトル', max_length=200)
 
     def __str__(self):
-        return self.meta_title
+        return self.mete_title

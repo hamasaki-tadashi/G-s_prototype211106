@@ -4,10 +4,8 @@
 <div class="container">
     <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
         <div class="text-center">
-            <img class="mb-4" src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-                style="width: 250px; height: 90px;" />
-            <h5 class="mb-3">pythonの練習</h5>
-            <p class="mb-3">Fuk_Dev9</p>
+            <h2 class="mb-3">{{ request.site.siteconfig.top_title }}</h2>
+            <p class="mb-3">{{ request.site.siteconfig.top_subtitle }}</p>
         </div>
     </div>
 </div>

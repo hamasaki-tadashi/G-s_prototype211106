@@ -16,14 +16,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SiteConfig',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('mete_title', models.CharField(max_length=100, verbose_name='meta_title')),
-                ('meta_description', models.CharField(max_length=300, verbose_name='meta_description')),
-                ('meta_keywords', models.CharField(max_length=300, verbose_name='SEOキーワード')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('mete_title', models.CharField(
+                    max_length=100, verbose_name='meta_title')),
+                ('meta_description', models.CharField(
+                    max_length=300, verbose_name='meta_description')),
+                ('meta_keywords', models.CharField(
+                    max_length=300, verbose_name='SEOキーワード')),
                 ('author', models.CharField(max_length=30, verbose_name='管理者')),
-                ('top_title', models.CharField(max_length=100, verbose_name='TOPページタイトル')),
-                ('top_subtitle', models.CharField(max_length=200, verbose_name='TOPページサブタイトル')),
-                ('site', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='sites.site', verbose_name='Site')),
+                ('top_title', models.CharField(
+                    max_length=100, verbose_name='TOPページタイトル')),
+                ('top_subtitle', models.CharField(
+                    max_length=200, verbose_name='TOPページサブタイトル')),
+                ('site', models.OneToOneField(
+                    on_delete=django.db.models.deletion.PROTECT, to='sites.site', verbose_name='Site')),
             ],
         ),
     ]
