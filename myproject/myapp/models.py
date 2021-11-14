@@ -10,6 +10,10 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def post_count(self):
+        n = Post.objects.filter(category = self).count()
+        return n
+
     # Postの内容をタイトルを使って参照できるようにする
     def __str__(self):
         return self.name
